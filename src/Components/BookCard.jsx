@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 
-function BookCard({ data }) {
+function BookCard({ data, handleLikedList }) {
   const { title, image, author, language, pages } = data;
 
   const [like, setLike] = useState(false);
 
   const likeHandler = () => {
+
+    handleLikedList(like,data)
     setLike((like) => !like);
   };
 
