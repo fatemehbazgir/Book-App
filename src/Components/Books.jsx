@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { books } from "../constants/mockData";
+import styles from "./Books.module.css"
 import BookCard from "./BookCard";
 import SideCard from "./SideCard";
 
@@ -17,8 +18,8 @@ function Books() {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.cards}>
         {books.map((book) => (
           <BookCard
             data={book}
@@ -27,7 +28,14 @@ function Books() {
           />
         ))}
       </div>
-      {!!liked.length && <div><SideCard/></div>}
+      {!!liked.length && (
+        <div className={styles.favorites}>
+            <h4>Favorites</h4>
+          {liked.map((book) => (
+            <SideCard key={book.id} data={book} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
+import styles from "./BookCard.module.css"
+
 
 function BookCard({ data, handleLikedList }) {
   const { title, image, author, language, pages } = data;
@@ -13,10 +15,10 @@ function BookCard({ data, handleLikedList }) {
   };
 
   return (
-    <div>
+    <div className={styles.card}>
       <img src={image} alt={title} />
 
-      <div>
+      <div className={styles.info}>
         <h3>{title}</h3>
         <p>{author}</p>
 

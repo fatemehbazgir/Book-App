@@ -1,8 +1,12 @@
 import React from 'react'
+import styles from "./SideCard.module.css"
 
-function SideCard() {
+function SideCard({data:{image,title}}) {
   return (
-    <div>SideCard</div>
+    <div className={styles.card}>
+        <img src={image} alt={title} />
+        <p>{title}</p>
+    </div>
   )
 }
 
